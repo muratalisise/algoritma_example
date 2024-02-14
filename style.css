@@ -1,0 +1,30 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+.card{
+	margin-top: 10% !important;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+}
+.card .card-body .card-title{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.card .card-body .btn{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+body .table{
+	margin-top: 10% !important;
+}
+.table thead .title{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
