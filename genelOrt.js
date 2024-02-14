@@ -1,72 +1,6 @@
-//* Mükemmel sayı bulma
-function mukemmelHesapla(){
-    const inputDeger = document.getElementById("degerInput").value;
-    var toplam = 0 ;
-
-    for (let i = 1; i < inputDeger; i++) {
-        if(inputDeger % i == 0){
-            toplam += i;
-        }
-    }
-    if(inputDeger == toplam){
-        alert("Mükemmel sayıdır");
-    } else {
-        alert("Mükemmel sayı değildir");
-    }
-}
-
-//* Asal sayı bulma
-var text = "";
-var sayi = 0;
-
-function asalHesapla() {
-    var sayac = 0;
-    sayi = document.getElementById('ınputDeger').value; 
-
-    if (sayi <= 1) { 
-        text = "Asal değil.";
-    } else {
-        for (var i = 2; i <= Math.sqrt(sayi); i++) { 
-            if (sayi % i === 0) {
-                sayac++;
-            }
-        }
-        if (sayac === 0) {
-            text = "Asal";
-        } else {
-            text = "Asal değil"
-        }
-    }
-    alert(text);
-}
-
-//* Tek ders ortalamasını hesaplayıp geçti kaldı yazma projesi
-const btn = document.getElementById("btn"); 
-btn.addEventListener("click", function(){
-    const sinav1 = parseFloat(document.getElementById("sinav1").value);
-    const sinav2 = parseFloat(document.getElementById("sinav2").value);
-    const performans = parseFloat(document.getElementById("performans").value);
-    const sozlu = parseFloat(document.getElementById("sozlu").value);
-    
-    if (!isNaN(sinav1) && !isNaN(sinav2) && !isNaN(performans) && !isNaN(sozlu)) {
-        const islem = (sinav1 + sinav2 + performans + sozlu) / 4;
-		if(islem >= 50){
-			alert("sınıftan geçti " , islem);
-		}else{
-			alert("sınıfta kaldı " + islem);
-		}
-        console.log(islem);
-    } else {
-        console.log("Lütfen geçerli sayısal değerler giriniz.");
-    }
-});
-//console.log(!isNaN(5));
 //* Bütün derslerin ortalamasını alıp genel ortalamayı bulan geçti kaldı mesajını veren proje
-
 const button = document.getElementById("button");
-
 button.addEventListener("click", function(){
-
 	const mat1 = parseFloat(document.getElementById("m1").value);
 	const mat2 = parseFloat(document.getElementById("m2").value);
 	const mat3 = parseFloat(document.getElementById("m3").value);
@@ -155,5 +89,4 @@ button.addEventListener("click", function(){
 		// Geçersiz notlar varsa
 		console.log("Lütfen geçerli notları giriniz.");
 	}
-	
 });
