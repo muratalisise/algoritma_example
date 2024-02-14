@@ -73,9 +73,9 @@ button.addEventListener("click", function(){
         alert("Lütfen geçerli sayısal değerler giriniz.");
     }
 	// Genel prtalmayı bulup sınıftan geçip geçmediğini kontrol etme
-	if (!isNaN(mat5) && !isNaN(turkce5) && !isNaN(sosyal5) && !isNaN(edebiyat5) && !isNaN(dilanlatim5)) {
+	if (!isNaN(mat5.value) && !isNaN(turkce5.value) && !isNaN(sosyal5.value) && !isNaN(edebiyat5.value) && !isNaN(dilanlatim5.value)) {
 		// Tüm notlar geçerliyse, ortalama hesapla
-		const sonuc6 = (parseFloat(mat5) + parseFloat(turkce5) + parseFloat(sosyal5) + parseFloat(edebiyat5) + parseFloat(dilanlatim5)) / 5;
+		const sonuc6 = (parseFloat(mat5.value) + parseFloat(turkce5.value) + parseFloat(sosyal5.value) + parseFloat(edebiyat5.value) + parseFloat(dilanlatim5.value)) / 5;
 		console.log("Genel ortalama: " + sonuc6);
 		// Ortalama 50 veya üstündeyse
 		if (sonuc6 >= 50) {
