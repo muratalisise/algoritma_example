@@ -32,13 +32,47 @@ button.addEventListener("click", function(){
 	const dilanlatim5 = document.getElementById("d5");
 
 	const textInput = document.getElementById("textInput");
+
+	const notlar = [
+		mat1,
+		mat2,
+		mat3,
+		mat4,
+		turkce1,
+		turkce2,
+		turkce3,
+		turkce4,
+		sosyal1,
+		sosyal2,
+		sosyal3,
+		sosyal4,
+		edebiyat1,
+		edebiyat2,
+		edebiyat3,
+		edebiyat4,
+		dilanlatim1,
+		dilanlatim2,
+		dilanlatim3,
+		dilanlatim4,
+	];
+	//* Boş inputları bulmak için yazılan kod
+		const bosAlan = [];
+		for (let i = 0; i < notlar.length; i++) {
+			if (isNaN(notlar[i])) {
+				const inputName = "input" + (i + 1);
+				bosAlan.push(inputName);
+			}
+		}
+
+		if (bosAlan.length > 0) {
+			alert("Boş alanlar: " + bosAlan.join(", "));
+		}
 	//Matematik dersi ortalana alma
 	if (!isNaN(mat1) && !isNaN(mat2) && !isNaN(mat3) && !isNaN(mat4)) {
         const sonuc1 = (mat1 + mat2 + mat3 + mat4) / 4;
 			console.log("Matematik ortalama " + sonuc1);
 			mat5.value = sonuc1;
 		} else {
-        alert("Lütfen geçerli sayısal değerler giriniz.");
     }
 	// türkçe dersi ortalama alma
 	if (!isNaN(turkce1) && !isNaN(turkce2) && !isNaN(turkce3) && !isNaN(turkce4)) {
@@ -46,7 +80,6 @@ button.addEventListener("click", function(){
 			console.log("Türkçe " + sonuc2);
 			turkce5.value = sonuc2;
 		} else {
-        alert("Lütfen geçerli sayısal değerler giriniz.");
     }
 	//Sosyal dersi ortalama alma
 	if (!isNaN(sosyal1) && !isNaN(sosyal2) && !isNaN(sosyal3) && !isNaN(sosyal4)) {
@@ -54,7 +87,6 @@ button.addEventListener("click", function(){
 			console.log("Sosyal " + sonuc3);
 			sosyal5.value = sonuc3;
 		} else {
-        alert("Lütfen geçerli sayısal değerler giriniz.");
     }
 	// Edebiyat dersi ortalama alma 
 	if (!isNaN(edebiyat1) && !isNaN(edebiyat2) && !isNaN(edebiyat3) && !isNaN(edebiyat4)) {
@@ -62,7 +94,6 @@ button.addEventListener("click", function(){
 			console.log("Edebiyat " + sonuc4);
 			edebiyat5.value = sonuc4;
 		} else {
-        alert("Lütfen geçerli sayısal değerler giriniz.");
     }
 	// Dil ve anlatım dersi ortalama alma
 	if (!isNaN(dilanlatim1) && !isNaN(dilanlatim2) && !isNaN(dilanlatim3) && !isNaN(dilanlatim4)) {
@@ -70,7 +101,6 @@ button.addEventListener("click", function(){
 			console.log("Dil Ve anlatım ortalama " + sonuc5);
 			dilanlatim5.value = sonuc5;
 		} else {
-        alert("Lütfen geçerli sayısal değerler giriniz.");
     }
 	// Genel prtalmayı bulup sınıftan geçip geçmediğini kontrol etme
 	if (!isNaN(mat5.value) && !isNaN(turkce5.value) && !isNaN(sosyal5.value) && !isNaN(edebiyat5.value) && !isNaN(dilanlatim5.value)) {
@@ -85,8 +115,7 @@ button.addEventListener("click", function(){
 			// Ortalama 50'den düşükse
 			alert("Sınıfta kaldınız!") 
 		}
-	} else {
-		// Geçersiz notlar varsa
-		console.log("Lütfen geçerli notları giriniz.");
-	}
+	} 
 });
+
+
