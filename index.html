@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Algoritma örnekleri</title>
 	<link rel="stylesheet" href="./style.css">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
+
 <body>
 	<div class="card" style="width: 18rem;">
 		<div class="card-body">
-		  <h5 class="card-title">Mükemmel Sayı Bulma</h5>
-		  <input class="form-control form-control-sm mb-3" type="text" aria-label=".form-control-sm example" id="degerInput">
-		  <a href="#" class="btn btn-primary" onclick="mukemmelHesapla()">Kontrol Et</a>
+			<h5 class="card-title">Mükemmel Sayı Bulma</h5>
+			<input class="form-control form-control-sm mb-3" type="text" aria-label=".form-control-sm example"
+				id="degerInput">
+			<a href="#" class="btn btn-primary" onclick="hesapla()">Kontrol Et</a>
 		</div>
-	  </div>
-	  <div class="card" style="width: 18rem;">
+	</div>
+	<div class="card" style="width: 18rem;">
 		<div class="card-body">
-		  <h5 class="card-title">Asal Sayı Bulma</h5>
-		  <input class="form-control form-control-sm mb-3" type="text" aria-label=".form-control-sm example" id="ınputDeger">
-		  <a href="#" class="btn btn-primary" onclick="asalHesapla()">Kontrol Et</a>
+			<h5 class="card-title">Asal Sayı Bulma</h5>
+			<input class="form-control form-control-sm mb-3" type="text" aria-label=".form-control-sm example"
+				id="ınputDeger">
+			<a href="#" class="btn btn-primary" onclick="asalHesapla()">Kontrol Et</a>
 		</div>
-	  </div>
-	  <table class="table table-dark w-50 m-auto">
+	</div>
+	<table class="table table-dark w-50 m-auto">
 		<thead>
 			<td colspan="2" class="table-active">Sınav 1
 				<input type="text" class="form-control" id="sinav1">
@@ -40,73 +45,86 @@
 				<button type="submit" class="btn btn-primary" id="btn">Hesapla</button>
 			</td>
 		</thead>
-	  </table>
-	  <table class="table w-50 m-auto" style="margin-bottom: 10% !important;">
+	</table>
+	<table class="table w-50 m-auto" style="margin-bottom: 10% !important;">
 		<thead>
-		  <tr>
-			<th scope="col">#</th>
-			<th scope="col">Matematik</th>
-			<th scope="col">Tükçe</th>
-			<th scope="col">Sosyal</th>
-			<th scope="col">Edebiyat</th>
-			<th scope="col">Türk Dili</th>
-		  </tr>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Matematik</th>
+				<th scope="col">Tükçe</th>
+				<th scope="col">Sosyal</th>
+				<th scope="col">Edebiyat</th>
+				<th scope="col">Türk Dili</th>
+			</tr>
 		</thead>
 		<tbody class="table-group-divider">
-		  <tr>
-			<th scope="row">Sınav 1</th>
-			<td><input type="text" class="form-control" id="m1"></td>
-			<td><input type="text" class="form-control" id="t1"></td>
-			<td><input type="text" class="form-control" id="s1"></td>
-			<td><input type="text" class="form-control" id="e1"></td>
-			<td><input type="text" class="form-control" id="d1"></td>
-		  </tr>
-		  <tr>
-			<th scope="row">Sınav 2</th>
-			<td><input type="text" class="form-control" id="m2"></td>
-			<td><input type="text" class="form-control" id="t2"></td>
-			<td><input type="text" class="form-control" id="s2"></td>
-			<td><input type="text" class="form-control" id="e2"></td>
-			<td><input type="text" class="form-control" id="d2"></td>
-		  </tr>
-		  <tr>
-			<th scope="row">Performans</th>
-			<td><input type="text" class="form-control" id="m3"></td>
-			<td><input type="text" class="form-control" id="t3"></td>
-			<td><input type="text" class="form-control" id="s3"></td>
-			<td><input type="text" class="form-control" id="e3"></td>
-			<td><input type="text" class="form-control" id="d3"></td>
-		  </tr>
-		  <tr>
-			<th scope="row">Sözlü</th>
-			<td><input type="text" class="form-control" id="m4"></td>
-			<td><input type="text" class="form-control" id="t4"></td>
-			<td><input type="text" class="form-control" id="s4"></td>
-			<td><input type="text" class="form-control" id="e4"></td>
-			<td><input type="text" class="form-control" id="d4"></td>
-		  </tr>
-		  <tr>
-			<th scope="row">Ortalama</th>
-			<td><input type="text" class="form-control" id="m5"></td>
-			<td><input type="text" class="form-control" id="t5"></td>
-			<td><input type="text" class="form-control" id="s5"></td>
-			<td><input type="text" class="form-control" id="e5"></td>
-			<td><input type="text" class="form-control" id="d5"></td>
-		  </tr>
-		  <tr>
-			<th scope="row">Genel Ortalama</th>
-			<td colspan="2"><button type="submit" class="btn btn-danger" id="button">Hesapla</button></td>
-			<td>
-				<span id="textInput"></span>
-			</td>
-		  </tr>
+			<tr>
+				<th scope="row">Sınav 1</th>
+				<td><input type="text" class="form-control" id="m1"></td>
+				<td><input type="text" class="form-control" id="t1"></td>
+				<td><input type="text" class="form-control" id="s1"></td>
+				<td><input type="text" class="form-control" id="e1"></td>
+				<td><input type="text" class="form-control" id="d1"></td>
+			</tr>
+			<tr>
+				<th scope="row">Sınav 2</th>
+				<td><input type="text" class="form-control" id="m2"></td>
+				<td><input type="text" class="form-control" id="t2"></td>
+				<td><input type="text" class="form-control" id="s2"></td>
+				<td><input type="text" class="form-control" id="e2"></td>
+				<td><input type="text" class="form-control" id="d2"></td>
+			</tr>
+			<tr>
+				<th scope="row">Performans</th>
+				<td><input type="text" class="form-control" id="m3"></td>
+				<td><input type="text" class="form-control" id="t3"></td>
+				<td><input type="text" class="form-control" id="s3"></td>
+				<td><input type="text" class="form-control" id="e3"></td>
+				<td><input type="text" class="form-control" id="d3"></td>
+			</tr>
+			<tr>
+				<th scope="row">Sözlü</th>
+				<td><input type="text" class="form-control" id="m4"></td>
+				<td><input type="text" class="form-control" id="t4"></td>
+				<td><input type="text" class="form-control" id="s4"></td>
+				<td><input type="text" class="form-control" id="e4"></td>
+				<td><input type="text" class="form-control" id="d4"></td>
+			</tr>
+			<tr>
+				<th scope="row">Ortalama</th>
+				<td><input type="text" class="form-control" id="m5"></td>
+				<td><input type="text" class="form-control" id="t5"></td>
+				<td><input type="text" class="form-control" id="s5"></td>
+				<td><input type="text" class="form-control" id="e5"></td>
+				<td><input type="text" class="form-control" id="d5"></td>
+			</tr>
+			<tr>
+				<th scope="row">Genel Ortalama</th>
+				<td colspan="2"><button type="submit" class="btn btn-danger" id="button">Hesapla</button></td>
+				<td>
+					<span id="textInput"></span>
+				</td>
+			</tr>
 		</tbody>
-	  </table>
+	</table>
 	<script src="./genelOrt.js"></script>
 	<script src="./tekDers.js"></script>
 	<script src="./mukemmel.js"></script>
+	<script src="./eren/perfect-number.class.js"></script>
 	<script src="./asal.js"></script>
+	<script>
+		function hesapla() {
+			let perfectNumber = new PerfectNumber();
+			let input = document.getElementById("degerInput");
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+			perfectNumber.calculate(input);
+			mukemmelHesapla();
+		}
+	</script>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous"></script>
 </body>
+
 </html>
