@@ -1,121 +1,105 @@
-//* Bütün derslerin ortalamasını alıp genel ortalamayı bulan geçti kaldı mesajını veren proje
 const button = document.getElementById("button");
-button.addEventListener("click", function(){
-	const mat1 = parseFloat(document.getElementById("m1").value);
-	const mat2 = parseFloat(document.getElementById("m2").value);
-	const mat3 = parseFloat(document.getElementById("m3").value);
-	const mat4 = parseFloat(document.getElementById("m4").value);	
-	const mat5 = document.getElementById("m5");
-	
-	const turkce1 = parseFloat(document.getElementById("t1").value);
-	const turkce2 = parseFloat(document.getElementById("t2").value);
-	const turkce3 = parseFloat(document.getElementById("t3").value);
-	const turkce4 = parseFloat(document.getElementById("t4").value);
-	const turkce5 = document.getElementById("t5");
-
-	const sosyal1 = parseFloat(document.getElementById("s1").value);
-	const sosyal2 = parseFloat(document.getElementById("s2").value);
-	const sosyal3 = parseFloat(document.getElementById("s3").value);
-	const sosyal4 = parseFloat(document.getElementById("s4").value);
-	const sosyal5 = document.getElementById("s5");
-
-	const edebiyat1 = parseFloat(document.getElementById("e1").value);
-	const edebiyat2 = parseFloat(document.getElementById("e2").value);
-	const edebiyat3 = parseFloat(document.getElementById("e3").value);
-	const edebiyat4 = parseFloat(document.getElementById("e4").value);
-	const edebiyat5 = document.getElementById("e5");
-
-	const dilanlatim1 = parseFloat(document.getElementById("d1").value);
-	const dilanlatim2 = parseFloat(document.getElementById("d2").value);
-	const dilanlatim3 = parseFloat(document.getElementById("d3").value);
-	const dilanlatim4 = parseFloat(document.getElementById("d4").value);
-	const dilanlatim5 = document.getElementById("d5");
-
-	const textInput = document.getElementById("textInput");
-
-	const notlar = [
-		mat1,
-		mat2,
-		mat3,
-		mat4,
-		turkce1,
-		turkce2,
-		turkce3,
-		turkce4,
-		sosyal1,
-		sosyal2,
-		sosyal3,
-		sosyal4,
-		edebiyat1,
-		edebiyat2,
-		edebiyat3,
-		edebiyat4,
-		dilanlatim1,
-		dilanlatim2,
-		dilanlatim3,
-		dilanlatim4,
-	];
-	//* Boş inputları bulmak için yazılan kod
-		const bosAlan = [];
-		for (let i = 0; i < notlar.length; i++) {
-			if (isNaN(notlar[i])) {
-				const inputName = "input" + (i + 1);
-				bosAlan.push(inputName);
+button.addEventListener("click", function () {
+	let ogrenci = {
+		sinavlar: {
+			dersler: {
+				matematik: {
+					notlar: [
+						Number(document.getElementById("m1").value),
+						Number(document.getElementById("m2").value),
+						Number(document.getElementById("m3").value),
+						Number(document.getElementById("m4").value),
+						Number(document.getElementById("m5").value)
+					]
+				},
+				turkce: {
+					notlar: [
+						Number(document.getElementById("t1").value),
+						Number(document.getElementById("t2").value),
+						Number(document.getElementById("t3").value),
+						Number(document.getElementById("t4").value)
+					]
+				},
+				sosyal: {
+					notlar: [
+						Number(document.getElementById("s1").value),
+						Number(document.getElementById("s2").value),
+						Number(document.getElementById("s3").value),
+						Number(document.getElementById("s4").value)
+					]
+				},
+				edebiyat: {
+					notlar: [
+						Number(document.getElementById("e1").value),
+						Number(document.getElementById("e2").value),
+						Number(document.getElementById("e3").value),
+						Number(document.getElementById("e4").value)
+					]
+				},
+				dil_anlatim: {
+					notlar: [
+						Number(document.getElementById("d1").value),
+						Number(document.getElementById("d2").value),
+						Number(document.getElementById("d3").value),
+						Number(document.getElementById("d4").value)
+					]
+				}
 			}
+		},
+		ortalama: 0,
+	};
+	for (const ders in ogrenci.sinavlar.dersler) {
+		if (Object.hasOwnProperty.call(ogrenci.sinavlar.dersler, ders)) {
+			const element = ogrenci.sinavlar.dersler[ders];
+			const toplamNot = element.notlar.reduce((acc, not) => acc + not, 0);
+			const adet = element.notlar.length;
+			const genelOrtalama = toplamNot / adet;
+			document.getElementById("textInput").innerText = genelOrtalama;
 		}
+	}
 
-		if (bosAlan.length > 0) {
-			alert("Boş alanlar: " + bosAlan.join(", "));
-		}
+	//const bosAlan = [];
+
+	//for (let i = 0; i < ogrenci.sinavlar.dersler.matematik.notlar.length; i++) {
+	//	if (isNaN(ogrenci.sinavlar.dersler.matematik.notlar[i])) {
+	//		const inputName = "input" + (i + 1);
+	//		bosAlan.push(inputName);
+	//	}
+	//}
+	//if (bosAlan.length > 0) {
+	//	alert("Boş alanlar: " + bosAlan.join(", "));
+	//}
+
 	//Matematik dersi ortalana alma
-	if (!isNaN(mat1) && !isNaN(mat2) && !isNaN(mat3) && !isNaN(mat4)) {
-        const sonuc1 = (mat1 + mat2 + mat3 + mat4) / 4;
-			console.log("Matematik ortalama " + sonuc1);
-			mat5.value = sonuc1;
-		} else {
-    }
+	if (!isNaN(ogrenci.sinavlar.dersler.matematik.mat1) && !isNaN(ogrenci.sinavlar.dersler.matematik.mat2) && !isNaN(ogrenci.sinavlar.dersler.matematik.mat3) && !isNaN(ogrenci.sinavlar.dersler.matematik.mat4)) {
+		const sonuc1 = (ogrenci.sinavlar.dersler.matematik.mat1 + ogrenci.sinavlar.dersler.matematik.mat2 + ogrenci.sinavlar.dersler.matematik.mat3 + ogrenci.sinavlar.dersler.matematik.mat4) / 4;
+		console.log("Matematik ortalama " + sonuc1);
+		console.log(ogrenci.sinavlar.dersler.matematik.mat5.innerText = sonuc1);
+	}
+	console.log(ogrenci.sinavlar.dersler.matematik.notlar.mat5);
+
 	// türkçe dersi ortalama alma
-	if (!isNaN(turkce1) && !isNaN(turkce2) && !isNaN(turkce3) && !isNaN(turkce4)) {
-        const sonuc2 = (turkce1 + turkce2 + turkce3 + turkce4) / 4;
-			console.log("Türkçe " + sonuc2);
-			turkce5.value = sonuc2;
-		} else {
-    }
+	//if (!isNaN(turkce1) && !isNaN(turkce2) && !isNaN(turkce3) && !isNaN(turkce4)) {
+	//	const sonuc2 = (turkce1 + turkce2 + turkce3 + turkce4) / 4;
+	//	console.log("Türkçe " + sonuc2);
+	//	turkce5.value = sonuc2;
+	//}
 	//Sosyal dersi ortalama alma
-	if (!isNaN(sosyal1) && !isNaN(sosyal2) && !isNaN(sosyal3) && !isNaN(sosyal4)) {
-        const sonuc3 = (sosyal1 + sosyal2 + sosyal3 + sosyal4) / 4;
-			console.log("Sosyal " + sonuc3);
-			sosyal5.value = sonuc3;
-		} else {
-    }
+	//if (!isNaN(sosyal1) && !isNaN(sosyal2) && !isNaN(sosyal3) && !isNaN(sosyal4)) {
+	//	const sonuc3 = (sosyal1 + sosyal2 + sosyal3 + sosyal4) / 4;
+	//	console.log("Sosyal " + sonuc3);
+	//	sosyal5.value = sonuc3;
+	//}
 	// Edebiyat dersi ortalama alma 
-	if (!isNaN(edebiyat1) && !isNaN(edebiyat2) && !isNaN(edebiyat3) && !isNaN(edebiyat4)) {
-        const sonuc4 = (edebiyat1 + edebiyat2 + edebiyat3 + edebiyat4) / 4;
-			console.log("Edebiyat " + sonuc4);
-			edebiyat5.value = sonuc4;
-		} else {
-    }
+	//if (!isNaN(edebiyat1) && !isNaN(edebiyat2) && !isNaN(edebiyat3) && !isNaN(edebiyat4)) {
+	//	const sonuc4 = (edebiyat1 + edebiyat2 + edebiyat3 + edebiyat4) / 4;
+	//	console.log("Edebiyat " + sonuc4);
+	//	edebiyat5.value = sonuc4;
+	//}
 	// Dil ve anlatım dersi ortalama alma
-	if (!isNaN(dilanlatim1) && !isNaN(dilanlatim2) && !isNaN(dilanlatim3) && !isNaN(dilanlatim4)) {
-        const sonuc5 = (dilanlatim1 + dilanlatim2 + dilanlatim3 + dilanlatim4) / 4;
-			console.log("Dil Ve anlatım ortalama " + sonuc5);
-			dilanlatim5.value = sonuc5;
-		} else {
-    }
-	// Genel prtalmayı bulup sınıftan geçip geçmediğini kontrol etme
-	if (!isNaN(mat5.value) && !isNaN(turkce5.value) && !isNaN(sosyal5.value) && !isNaN(edebiyat5.value) && !isNaN(dilanlatim5.value)) {
-		// Tüm notlar geçerliyse, ortalama hesapla
-		const sonuc6 = (parseFloat(mat5.value) + parseFloat(turkce5.value) + parseFloat(sosyal5.value) + parseFloat(edebiyat5.value) + parseFloat(dilanlatim5.value)) / 5;
-		console.log("Genel ortalama: " + sonuc6);
-		// Ortalama 50 veya üstündeyse
-		if (sonuc6 >= 50) {
-			console.log("ASDASDASD " + sonuc6);
-			alert("Sınıftan geçtiniz! Tebrikler!") 
-		} else {
-			// Ortalama 50'den düşükse
-			alert("Sınıfta kaldınız!") 
-		}
-	} 
+	//if (!isNaN(dilanlatim1) && !isNaN(dilanlatim2) && !isNaN(dilanlatim3) && !isNaN(dilanlatim4)) {
+	//	const sonuc5 = (dilanlatim1 + dilanlatim2 + dilanlatim3 + dilanlatim4) / 4;
+	//	console.log("Dil Ve anlatım ortalama " + sonuc5);
+	//	dilanlatim5.value = sonuc5;
+	//}	
 });
-
-
